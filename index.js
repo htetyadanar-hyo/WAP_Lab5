@@ -37,16 +37,10 @@ const students = [
     { name: 'Katie', grades: [66, 77], courses:['cs303', 'cs477'] }
   
   ];
-  function averageGrade(arr){
-    return arr.filter(student => student.courses.includes('cs303'))
-                .map(student => ({
-                    name: student.name,
-                    avg: student.grades.reduce((x,y)=>(x+y)/student.grades.length,0)
-                }))
-                .reduce((obj,student)=>{
-                    obj[student.name] = student.avg;
-                    return obj;
-                },{});
-  }
-const result = averageGrade(students);
+  let result = students.filter(s=>s.courses.includes('cs303'))
+    .reduce((accu,student)=>{
+        let avg = student.grades.reduce((x,y)=>(x + y),0)/student.grades.length;
+        accu[student.name] = avg;
+        return accu;
+    },{});
 console.log(result);
