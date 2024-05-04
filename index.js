@@ -7,8 +7,8 @@ let arr = [20,30,40];
 console.log(sum(arr));
 
 //2.
-function getNewArray(arr){
-    const result = [];
+const getNewArray = function (arr){
+    let result = [];
     arr.forEach(item => {
         if(item.length >= 5 && item.includes('a')){
             result.push(item);
